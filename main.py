@@ -3,7 +3,7 @@
 
 import json
 import os
-import time
+from asyncio import sleep as asleep
 
 import discord
 import requests
@@ -53,16 +53,19 @@ async def on_ready():
         try:
             price, PriceChange = getOsmosisPrice()
             await member.edit(nick=f"{SYMBOL} ${price}")
-            time.sleep(1)
+            await asleep(1)
+
             if PriceChange > 0:
                 PriceChange = "+" + str(PriceChange)
+                
             await client.change_presence(
                 activity=discord.Activity(
                     type=discord.ActivityType.watching,
                     name="Δ 24h: " + str(PriceChange) + "%",
                 )
             )
-            time.sleep(28)
+
+            await asleep(28)
         except:
             continue
 
