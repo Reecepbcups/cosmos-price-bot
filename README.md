@@ -2,6 +2,8 @@
 
 A discord bot which changes the nickname to $ price and status to the MarketCap
 
+![image](https://user-images.githubusercontent.com/31943163/230540242-2137a06e-a0d5-422b-8f52-9ef00135c900.png)
+
 ## Setup
 
 ```bash
